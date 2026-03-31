@@ -16,6 +16,18 @@ public class InfractorController {
 
     private final IInfractorService infractorService;
 
+    @GetMapping("/{id}/deuda")
+    public ResponseEntity<Double> calcularDeuda(@PathVariable Long id) {
+        return ResponseEntity.ok(infractorService.calcularDeuda(id));
+    }
+
+    @DeleteMapping("/{id}/vehiculos/{vehiculoId}")
+    public ResponseEntity<String> desasignarVehiculo(@PathVariable Long id,
+                                                     @PathVariable Long vehiculoId) {
+        infractorService.desasignarVehiculo(id, vehiculoId);
+        return ResponseEntity.ok("Vehículo desasignado correctamente");
+    }
+
     @PostMapping
     public ResponseEntity<InfractorResponseDTO> registrar(@RequestBody InfractorRequestDTO dto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(infractorService.registrarInfractor(dto));

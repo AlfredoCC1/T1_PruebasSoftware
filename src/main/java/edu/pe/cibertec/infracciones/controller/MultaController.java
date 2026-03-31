@@ -16,6 +16,15 @@ public class MultaController {
 
     private final IMultaService multaService;
 
+    @PutMapping("/{multaId}/transferir/{infractorId}")
+    public ResponseEntity<String> transferirMulta(
+            @PathVariable Long multaId,
+            @PathVariable Long infractorId) {
+
+        multaService.transferirMulta(multaId, infractorId);
+        return ResponseEntity.ok("Multa transferida correctamente");
+    }
+
     @PostMapping
     public ResponseEntity<MultaResponseDTO> registrar(@RequestBody MultaRequestDTO dto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(multaService.registrarMulta(dto));

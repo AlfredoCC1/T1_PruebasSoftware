@@ -22,3 +22,14 @@ INSERT IGNORE INTO infractor_vehiculo (infractor_id, vehiculo_id) VALUES
 (1, 2),
 (2, 2),
 (3, 3);
+
+INSERT IGNORE INTO multas
+(codigo, monto, fecha_emision, fecha_vencimiento, estado, infractor_id, vehiculo_id)
+VALUES
+    ('M-001', 200.0, '2026-01-01', '2026-02-01', 'PENDIENTE', 1, 1),
+    ('M-002', 300.0, '2026-01-01', '2026-02-01', 'VENCIDA', 1, 1),
+    ('M-100', 250.0, '2026-01-01', '2026-02-01', 'PENDIENTE', 1, 2),
+    ('M-005', 200.0, '2026-01-01', '2026-02-01', 'PENDIENTE', 2, 2),
+    ('M-006', 300.0, '2026-01-02', '2026-02-02', 'VENCIDA', 2, 2),
+    ('M-007', 500.0, '2026-01-03', '2026-02-03', 'VENCIDA', 3, 3),
+    ('M-008', 250.0, '2026-01-04', '2026-02-04', 'VENCIDA', 3, 3);
